@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e18">
+<meta name="description" content="人生模拟器：从出生到死亡。虚构模拟，不预测真实人生。">
+<title>人生模拟器 · 从出生到死亡</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23e8b96a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<svg class="art-sprite" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="art-A" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#0f1522"/>
+      <rect x="18" y="16" width="104" height="70" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/>
+      <line x1="18" y1="52" x2="122" y2="52" stroke="currentColor" opacity=".3"/>
+      <line x1="70" y1="16" x2="70" y2="86" stroke="currentColor" opacity=".3"/>
+      <rect x="150" y="76" width="140" height="7" rx="3" fill="currentColor" opacity=".28"/>
+      <rect x="158" y="83" width="7" height="24" fill="currentColor" opacity=".2"/>
+      <rect x="274" y="83" width="7" height="24" fill="currentColor" opacity=".2"/>
+      <circle cx="222" cy="58" r="9" fill="currentColor" opacity=".45"/>
+      <path d="M214 67 L230 67 L226 78 L218 78 Z" fill="currentColor" opacity=".3"/>
+      <rect x="150" y="104" width="140" height="3" fill="currentColor" opacity=".12"/>
+    </symbol>
+
+    <symbol id="art-B" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#101a2b"/>
+      <circle cx="276" cy="24" r="12" fill="currentColor" opacity=".35"/>
+      <rect x="30" y="34" width="250" height="72" fill="currentColor" opacity=".16"/>
+      <g fill="currentColor" opacity=".45">
+        <rect x="46" y="46" width="20" height="14"/><rect x="78" y="46" width="20" height="14"/>
+        <rect x="110" y="46" width="20" height="14"/><rect x="142" y="46" width="20" height="14"/>
+        <rect x="174" y="46" width="20" height="14"/><rect x="206" y="46" width="20" height="14"/>
+        <rect x="46" y="72" width="20" height="14"/><rect x="78" y="72" width="20" height="14"/>
+        <rect x="110" y="72" width="20" height="14"/><rect x="142" y="72" width="20" height="14"/>
+      </g>
+      <rect x="236" y="66" width="24" height="40" fill="currentColor" opacity=".3"/>
+      <rect x="238" y="70" width="20" height="8" fill="#0f1522" opacity=".7"/>
+      <line x1="300" y1="12" x2="300" y2="86" stroke="currentColor" opacity=".45"/>
+      <path d="M300 14 L320 22 L300 30 Z" fill="currentColor" opacity=".55"/>
+      <rect y="106" width="320" height="14" fill="currentColor" opacity=".08"/>
+    </symbol>
+
+    <symbol id="art-C" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#121626"/>
+      <rect y="86" width="320" height="34" fill="currentColor" opacity=".12"/>
+      <rect x="18" y="34" width="120" height="52" fill="currentColor" opacity=".18"/>
+      <rect x="26" y="42" width="104" height="10" fill="currentColor" opacity=".4"/>
+      <circle cx="238" cy="76" r="16" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+      <circle cx="274" cy="76" r="16" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+      <path d="M238 76 L256 78 L274 76" stroke="currentColor" stroke-width="2" fill="none" opacity=".45"/>
+      <line x1="252" y1="60" x2="262" y2="60" stroke="currentColor" stroke-width="2" opacity=".45"/>
+      <circle cx="196" cy="40" r="7" fill="currentColor" opacity=".35"/>
+      <rect x="0" y="0" width="320" height="4" fill="currentColor" opacity=".1"/>
+    </symbol>
+
+    <symbol id="art-D" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#1a1420"/>
+      <circle cx="240" cy="40" r="18" fill="currentColor" opacity=".4"/>
+      <rect y="70" width="320" height="6" fill="currentColor" opacity=".18"/>
+      <path d="M0 86 Q80 78 160 86 T320 86 L320 120 L0 120 Z" fill="currentColor" opacity=".16"/>
+      <circle cx="120" cy="86" r="6" fill="currentColor" opacity=".45"/>
+      <rect x="117" y="92" width="6" height="18" rx="3" fill="currentColor" opacity=".35"/>
+      <circle cx="146" cy="86" r="6" fill="currentColor" opacity=".45"/>
+      <rect x="143" y="92" width="6" height="18" rx="3" fill="currentColor" opacity=".35"/>
+    </symbol>
+
+    <symbol id="art-E" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#131a24"/>
+      <rect x="26" y="30" width="150" height="8" rx="3" fill="currentColor" opacity=".3"/>
+      <rect x="30" y="38" width="140" height="40" fill="currentColor" opacity=".14"/>
+      <rect x="34" y="44" width="42" height="26" rx="4" fill="currentColor" opacity=".3"/>
+      <line x1="222" y1="18" x2="222" y2="100" stroke="currentColor" stroke-width="3" opacity=".5"/>
+      <rect x="208" y="20" width="14" height="24" rx="4" fill="currentColor" opacity=".35"/>
+      <line x1="222" y1="44" x2="240" y2="52" stroke="currentColor" opacity=".35"/>
+      <circle cx="96" cy="96" r="4" fill="currentColor" opacity=".4"/>
+      <rect y="108" width="320" height="12" fill="currentColor" opacity=".1"/>
+    </symbol>
+
+    <symbol id="art-F" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#121b1a"/>
+      <rect x="20" y="58" width="280" height="46" fill="currentColor" opacity=".16"/>
+      <rect x="20" y="54" width="280" height="8" fill="currentColor" opacity=".3"/>
+      <rect x="40" y="34" width="60" height="20" rx="3" fill="currentColor" opacity=".35"/>
+      <rect x="52" y="40" width="36" height="8" fill="#0f1522" opacity=".6"/>
+      <circle cx="150" cy="42" r="10" fill="currentColor" opacity=".4"/>
+      <circle cx="176" cy="42" r="10" fill="currentColor" opacity=".3"/>
+      <rect x="210" y="30" width="70" height="24" rx="3" fill="currentColor" opacity=".22"/>
+      <rect x="216" y="36" width="58" height="12" fill="currentColor" opacity=".12"/>
+    </symbol>
+
+    <symbol id="art-G" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#111726"/>
+      <rect x="18" y="20" width="120" height="78" fill="currentColor" opacity=".12"/>
+      <g fill="currentColor" opacity=".28">
+        <rect x="26" y="30" width="10" height="10"/><rect x="44" y="30" width="10" height="10"/>
+        <rect x="62" y="30" width="10" height="10"/><rect x="80" y="30" width="10" height="10"/>
+        <rect x="98" y="30" width="10" height="10"/><rect x="26" y="48" width="10" height="10"/>
+        <rect x="44" y="48" width="10" height="10"/><rect x="62" y="48" width="10" height="10"/>
+      </g>
+      <rect x="170" y="60" width="120" height="6" rx="2" fill="currentColor" opacity=".3"/>
+      <rect x="186" y="66" width="8" height="30" fill="currentColor" opacity=".2"/>
+      <rect x="266" y="66" width="8" height="30" fill="currentColor" opacity=".2"/>
+      <rect x="200" y="34" width="54" height="26" rx="2" fill="currentColor" opacity=".35"/>
+      <rect x="204" y="38" width="46" height="18" fill="#0f1522" opacity=".55"/>
+      <rect x="270" y="52" width="18" height="8" rx="4" fill="currentColor" opacity=".3"/>
+    </symbol>
+
+    <symbol id="art-H" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#161521"/>
+      <circle cx="70" cy="30" r="14" fill="currentColor" opacity=".3"/>
+      <rect x="60" y="44" width="6" height="46" fill="currentColor" opacity=".25"/>
+      <rect x="140" y="46" width="52" height="40" rx="6" fill="currentColor" opacity=".28"/>
+      <circle cx="166" cy="64" r="9" fill="#0f1522" opacity=".6"/>
+      <rect x="188" y="56" width="60" height="6" rx="2" fill="currentColor" opacity=".35"/>
+      <rect x="244" y="50" width="8" height="18" rx="2" fill="currentColor" opacity=".4"/>
+      <rect x="30" y="92" width="70" height="8" rx="2" fill="currentColor" opacity=".25"/>
+      <rect x="36" y="84" width="58" height="8" rx="2" fill="currentColor" opacity=".18"/>
+    </symbol>
+
+    <symbol id="art-I" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#141318"/>
+      <path d="M0 0 L90 40 L90 120 L0 120 Z" fill="currentColor" opacity=".14"/>
+      <path d="M320 0 L230 40 L230 120 L320 120 Z" fill="currentColor" opacity=".14"/>
+      <line x1="160" y1="6" x2="160" y2="70" stroke="currentColor" stroke-width="3" opacity=".5"/>
+      <circle cx="160" cy="72" r="7" fill="currentColor" opacity=".6"/>
+      <path d="M160 76 L120 120 L200 120 Z" fill="currentColor" opacity=".12"/>
+      <g stroke="currentColor" stroke-width="1" opacity=".25">
+        <line x1="60" y1="10" x2="52" y2="34"/><line x1="110" y1="20" x2="102" y2="44"/>
+        <line x1="210" y1="14" x2="202" y2="38"/><line x1="262" y1="26" x2="254" y2="50"/>
+      </g>
+      <rect y="106" width="320" height="14" fill="currentColor" opacity=".16"/>
+    </symbol>
+
+    <symbol id="art-J" viewBox="0 0 320 120">
+      <rect width="320" height="120" fill="#121722"/>
+      <path d="M0 78 Q60 52 120 74 T240 70 T320 74 L320 120 L0 120 Z" fill="currentColor" opacity=".14"/>
+      <g fill="currentColor" opacity=".22">
+        <rect x="20" y="62" width="34" height="44"/><rect x="62" y="52" width="28" height="54"/>
+        <rect x="98" y="68" width="40" height="38"/><rect x="146" y="46" width="30" height="60"/>
+        <rect x="184" y="64" width="36" height="42"/><rect x="228" y="56" width="30" height="50"/>
+        <rect x="266" y="70" width="34" height="36"/>
+      </g>
+      <line x1="120" y1="24" x2="120" y2="60" stroke="currentColor" opacity=".35"/>
+      <line x1="120" y1="24" x2="176" y2="24" stroke="currentColor" opacity=".35"/>
+      <line x1="176" y1="24" x2="176" y2="40" stroke="currentColor" opacity=".25"/>
+      <circle cx="176" cy="44" r="3" fill="currentColor" opacity=".4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="app">
+
+  <!-- 标题 -->
+  <section id="screen-title" class="screen is-active">
+    <div class="brand" aria-hidden="true"></div>
+    <h1>人生模拟器</h1>
+    <p class="subtitle">从出生到死亡 · 0—100 岁</p>
+    <div class="menu">
+      <button id="btn-start" class="btn btn-primary">开始新人生</button>
+      <button id="btn-continue" class="btn" disabled>继续上次</button>
+      <button id="btn-settings" class="btn btn-ghost">设置</button>
+    </div>
+    <p class="meta" id="last-run"></p>
+    <p class="disclaimer">平均数据只是基准线，不是标准答案。虚构模拟，不预测真实人生。</p>
+    <span class="version" id="version"></span>
+  </section>
+
+  <!-- 创建角色 -->
+  <section id="screen-setup" class="screen">
+    <header class="topbar">
+      <button class="icon-btn" id="btn-setup-back" aria-label="返回标题">←</button>
+      <span class="topbar-title">出生</span>
+      <span class="topbar-right" id="points-left">剩余 0</span>
+    </header>
+    <div class="scroll">
+      <div class="block">
+        <h2 class="block-title">先天属性 <span class="hint">20 点以内，每项 0—8，可以不花完</span></h2>
+        <div class="attr-list" id="attr-list"></div>
+        <div class="row-actions">
+          <button class="btn btn-ghost btn-small" id="btn-reroll">重新抽取</button>
+          <button class="btn btn-ghost btn-small" id="btn-average">平均分配</button>
+        </div>
+        <p class="hint" id="derived-hint"></p>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title">性别 <span class="hint">初始偏移量，不锁死路径</span></h2>
+        <div class="region-list" id="gender-list"></div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title">天赋 <span class="hint">三选一</span></h2>
+        <div class="talent-list" id="talent-list"></div>
+        <div class="row-actions">
+          <button class="btn btn-ghost btn-small" id="btn-talent-reroll">换一批</button>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title">出生 <span class="hint">决定起点</span></h2>
+        <div class="region-list" id="region-list"></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <button id="btn-create" class="btn btn-primary btn-block" disabled>出生</button>
+    </footer>
+  </section>
+
+  <!-- 人生 -->
+  <section id="screen-life" class="screen">
+    <div class="scene" id="scene" data-scene="home" aria-hidden="true"></div>
+    <header class="life-head">
+      <div class="life-row">
+        <div class="age-chip"><span id="age-num">0</span><small>岁</small></div>
+        <div class="stage-name" id="stage-name">学前</div>
+        <button class="icon-btn" id="btn-undo" aria-label="回退一次选择，可连续回退" disabled title="回退一次选择（可连点）">↶</button>
+        <button class="icon-btn" id="btn-exit" aria-label="退出并保存" title="退出（自动存档）">⎋</button>
+        <button class="icon-btn" id="btn-life-settings" aria-label="设置">⚙</button>
+      </div>
+      <div class="attrs" id="attrs-strip"></div>
+    </header>
+    <main class="log" id="log" role="log" aria-live="polite"></main>
+    <p class="save-ind" id="save-ind">存档只保存在本机浏览器</p>
+    <footer class="footer footer-actions">
+      <button id="btn-auto" class="btn btn-ghost btn-auto" aria-pressed="false">自动</button>
+      <button id="btn-next" class="btn btn-primary">长大一岁</button>
+    </footer>
+  </section>
+
+  <!-- 死亡 -->
+  <section id="screen-end" class="screen">
+    <div class="scroll end-wrap">
+      <p class="end-kicker" id="death-kind">人 生 落 幕</p>
+      <h2 class="end-title" id="end-title"></h2>
+      <p class="end-age" id="end-age"></p>
+      <div class="score-ring"><span id="end-score">0</span><small id="end-grade">综合</small></div>
+      <p class="end-text" id="end-text"></p>
+
+      <div class="block">
+        <h3>人生轨道</h3>
+        <div class="traj-wrap">
+          <svg id="traj" class="traj" viewBox="0 0 1000 260" preserveAspectRatio="xMidYMid meet"></svg>
+          <div id="traj-panel" class="traj-panel"></div>
+        </div>
+      </div>
+      <div class="block">
+        <h3>这一生</h3>
+        <div id="end-dims" class="dims"></div>
+      </div>
+
+      <div class="block">
+        <h3>人生大事记</h3>
+        <div id="end-path" class="mini-path"></div>
+      </div>
+
+      <p class="disclaimer">平均寿命 79.25 岁只是群体基准。这是虚构模拟，不预测真实人生。</p>
+
+      <button id="btn-undo-end" class="btn btn-ghost btn-block" hidden>↶ 回退一次选择（可连点，直到第一次选择）</button>
+    </div>
+    <footer class="footer footer-row">
+      <button class="btn btn-ghost" id="btn-end-home">回标题</button>
+      <button class="btn btn-primary" id="btn-end-again">再活一次</button>
+    </footer>
+  </section>
+
+  <!-- 设置 -->
+  <section id="screen-settings" class="screen">
+    <header class="topbar">
+      <button class="icon-btn" id="btn-settings-back" aria-label="返回">←</button>
+      <span class="topbar-title">设置</span>
+      <span class="topbar-right"></span>
+    </header>
+    <div class="scroll">
+      <div class="block">
+        <h3>文字速度</h3>
+        <div class="seg" id="seg-speed">
+          <button data-speed="off">瞬间</button>
+          <button data-speed="fast">较快</button>
+          <button data-speed="normal">正常</button>
+        </div>
+      </div>
+      <div class="block">
+        <h3>显示</h3>
+        <label class="switch-row"><span>减少动画</span><input type="checkbox" id="chk-motion"></label>
+      </div>
+      <div class="block">
+        <h3>数据</h3>
+        <button class="btn btn-ghost btn-block" id="btn-reset">清除全部本地数据</button>
+        <p class="hint" style="margin-top:10px">存档、设置与记录只保存在这台设备的浏览器里，不会上传。</p>
+      </div>
+      <div class="block">
+        <h3>关于</h3>
+        <p class="hint" id="about"></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/audio.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
